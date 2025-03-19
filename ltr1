@@ -1,1 +1,39 @@
+                                                                Learning-to-Rank
+(1)....................................................................................................................................................................
+What is Learning-to-Rank (LTR) ?
+- LTR = ML for ranking search results
+- instead of handcrafted formulas learns for data (query-document pairs)
+
+(2)....................................................................................................................................................................
+LTR as a Supervised Learning Task
+- uses labeled training data:
+      - Features: BM25, PageRank, Click-through rate, Recency, etc.
+      - Labels: how relevant a document is for a query
+Key Components
+- Feature extraction : collects ranking signals
+- Loss function optimization : learns the best ranking model
+
+(3)....................................................................................................................................................................
+Three major LTR Approaches
+
+a. Pointwise LTR : (easy but ignores relative order)
+- Treats ranking as a regression/classification problem.
+- Predicts individual document scores (like BM25 but learned).
+- Examples: Linear Regression, Decision Trees.
+
+b. Pairwise LTR : (captures ranking order better)
+- Compares pairs of documents and learns which one should rank higher.
+- Examples: RankNet (Neural Network for ranking).
+
+c. Listwise LTR : (most powerful but complex)
+- Optimizes the entire ranking list using IR metrics (NDCG, MAP).
+- Example: LambdaMART (Gradient Boosted Trees for ranking).
+
+(4)......................................................................................................................................................................
+
+
+
+
+
+
 
