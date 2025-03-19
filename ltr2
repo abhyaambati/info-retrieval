@@ -1,0 +1,33 @@
+ Click Data & Learning to Rank
+
+(1) ..........................................................................................................................................................
+Real-World Ranking Features
+- ranking uses both query dependent and query independent features
+a. query-ind : page quality, freshness, spam score
+b. que-dep : relevance, clickthrough rate, user context
+- click data is a powerful ranking signal but needs careful interpretation!
+
+(2)..........................................................................................................................................................
+Click data and biases in biases in user interactions
+- CTR ( Clickthrough rate) : measures how often users click a search result
+- biases in click data:
+        - position bias : higher-rank results get more clicks,even if they arent the best
+        - contextual bias : clicks depend on nearby results
+        - presentation bias : formatting affects behaviour
+- clicks dont always mean relevance, they can be misleading
+
+(3) ..........................................................................................................................................................
+Learning from clicks - models to reduce bias
+- Position-Based models (PBM) : Adjust for position bias in CTR data
+- cascade models : Assume users scan results top-down & stop when they find a good one.
+- dynamic bayesian networks (DBN) : captures both probability and user satisfaction
+
+*Better ranking models account for user behavior, not just raw click counts.
+
+(4) Interleaving for online evaluation
+- Interleaving compares two ranking functions in real user interactions.
+- Types:
+       - Balanced interleaving → Mixes two rankings & assigns credit based on clicks.
+       - Team draft interleaving → Picks results alternately from two rankers.
+- Why use it? More reliable than offline judgments, avoids biases.
+- Interleaving helps compare ranking models in real-world conditions.
