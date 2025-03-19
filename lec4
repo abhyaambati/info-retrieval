@@ -1,1 +1,61 @@
+                                                      Relevance Feedback and Probabilistic IR
+- Improve search results by incorporating user feedback
+(1)  .................................................................................................................................................................... 
+Relevance Feedback (RF) - Improving queries
+* Goal : improve search results by incorporating a feedback
+
+How It Works:
+- user marks relevant and non-relevant docs
+- system updates the query based on this feedback
+- reranks results to improve precision
+
+Key Methods:
+- boost weights of relevant terms (common in relevant docs)
+- add new terms from relevant docs to improve query
+- remove or reduce weight of irrelevant terms
+
+(2) ....................................................................................................................................................................
+Rocchio Algorithm (Most Common RF Method)
+- modifies the query vector to move towards the relevant docs and away from irrelevant docs
+- Formula:
+            refer to slides
+
+- qm, q0, dr, dnr, alpha, beta, gamma ( beta > gamma -> more focus on postive feedback )
+
+(3) ....................................................................................................................................................................
+Pseudo Relevance Feedback (PRF)
+- automated relevance feedback -> no manual user input needed
+- assumes top k retrieved docs are relevant and modifies the query accordingly
+
+Downside: if top k results are bad, feedback worsens the ranking (query drift issue)
+- Used in: Google's "More Like This" recommendations
+
+(4)....................................................................................................................................................................
+Probabilistic IR and Probabilistic Ranking Principle (PRP)
+Goal: Rank documents by their probability of relevance
+
+PRP Formula: P(R=1 | D,Q) > P(R=0 | D,Q)
+
+- Retrieves documents in decreasing order of relevance
+- Assume's each docs relevance is independent of others (which is not always true)
+
+(5)....................................................................................................................................................................
+Binary Independence Model (BIM) - A Probabilistic IR Model
+Assumptions:
+- words in docs occur independently (not always true)
+- docs are represented as binary vectors (term present=1, absent=0)
+- Ranking Function: based on long-odds of relevance for each document
+
+Formula:  RSV = sigma log ( (P(ti/R) / P(ti/NR) )
+          Retrieval Status Value (higher = more relevant)
+
+(6)....................................................................................................................................................................
+Okapi BM25 (Improved BIM Model)
+
+BM25 = TF-IDF + Probabilistic Adjustments
+Formula: sigma IDF x TF (k1+1) / ...
+
+k1 = term frequency scaling (default = 1.2 - 2)
+b = length normalization (defalt = 0.75)
+- BM25 is one of the best ranking functions used in modern search engines
 
