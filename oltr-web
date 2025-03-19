@@ -1,0 +1,39 @@
+Online-Learning-To-Rank (OLTR)
+
+(1) What is OLTR?
+- OLTR = LTR with live user interactions
+- Unlike traditional LTR (which uses pre-collected data), OLTR actively learns & updates rankings in real-time
+
+* Why use OLTR?
+Adapts to new queries & user behaviors.
+Learns from implicit feedback (clicks, scrolls, gaze tracking).
+Reduces bias in ranking (e.g., position bias, attractiveness bias).
+
+(2) Challenges in OLTR
+a.  Click Biases
+        - Users click higher-ranked results more, even if they aren’t the best.
+        - Solution: Counterfactual learning (adjusts click weights).
+b.  Selection Biases
+        - Users only see & interact with displayed documents.
+        - Solution: Policy-aware ranking (accounts for missing data).
+c.  Exploration vs Exploitation
+        - Need to explore new ranking strategies while still using what works best.
+
+*Key Idea: OLTR balances exploration (testing new ranks) and exploitation (showing best-known results)
+
+(3) OLTR as RL Problem
+- Think of search ranking as a game:
+           - State: Query & user behavior.
+           - Action: Show ranked documents.
+           - Reward: User clicks, dwell time, etc.
+- Bandit Algorithms (like Multi-Armed Bandits) help balance exploration & exploitation.
+-Example Approaches:
+         - 𝜀-Greedy: Tries a new rank 𝜀% of the time.
+         - Upper Confidence Bound (UCB): Picks ranks with uncertain but potentially high rewards.
+
+(4) Implicit Signals in OLTR
+- Click models: Adjust for biases in click behavior.
+- Dwell time & gaze tracking: Measures user satisfaction with a page.
+- Cursor movements & scrolling: Detects engagement & reading behavior.
+
+*More reliable than raw click counts!
