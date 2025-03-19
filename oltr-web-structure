@@ -1,0 +1,68 @@
+OLTR and Web Structure
+
+(1) OLTR Basics
+- OLTR dynamically updates rankings based on user interactions (unlike offline LTR, which trains on static data).
+- Key challenge: OLTR doesn’t directly observe rewards (e.g., clicks can be biased).
+- Solution: Use probabilistic models & bandit algorithms to infer true relevance.
+
+Why use OLTR?
+- Adapts to real-time user behavior.
+- More efficient than human-labeled relevance data.
+- Can improve search rankings with continuous learning.
+
+(2) OLTR vs. Contextual Bandits
+- Contextual Bandit Problem (CBP):
+          - Learns which action (ranking) gets the highest reward.
+          - Assumes direct reward observations (e.g., user purchases).
+- OLTR:
+          - Observes indirect signals like clicks (which can be misleading).
+          - Needs to correct for biases (e.g., position bias).
+
+Why not just use CBP for OLTR?
+- OLTR deals with massive action spaces (many possible rankings).
+- Click data is noisy → Needs bias correction techniques.
+
+(3) Self-Confirming Bias in OLTR
+- Issue: If a bad result is ranked high & clicked, the system wrongly assumes it’s good → reinforcing bad rankings.
+- Fix: Exploration strategies like Dueling Bandit Gradient Descent (DBGD) prevent getting stuck in a biased loop.
+
+
+(4) Dueling Bandit Gradient Descent (DBGD)
+- Key Idea: Compare two ranking models in live A/B testing → Keep the better one.
+- Steps:
+        - Start with a base ranking model.
+        - Create a slightly modified ranking (candidate model).
+        - Use interleaving to mix both rankings & test user clicks.
+        - If candidate ranking wins, update the model.
+
+Advantages:
+- Faster learning than random exploration.
+- Directly optimizes for user satisfaction.
+
+(5) Web Structure & Static Ranking (PageRank)
+- The web is a directed graph → Pages link to each other.
+- PageRank: Measures a page’s importance based on incoming links.
+
+- PageRank Formula: 
+          PR(A)=(1−d)+d∑ ( PR(B) / L(B) )
+             where:
+             - PR(A) = PageRank of page A.
+             - d = Damping factor (usually 0.85).
+             - L(B) = Number of links on page B.
+Why is PageRank important?
+- Helps in static ranking (before personalization or query relevance is applied).
+- Reduces spam & manipulation in search results.
+
+
+​
+
+
+
+
+
+
+
+
+
+
+
