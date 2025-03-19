@@ -1,0 +1,40 @@
+Web Crawling & Indexing
+
+(1) What is Web Crawling?
+- Web crawlers (spiders) systematically browse the internet to collect web pages.
+- Used for search engines, data mining, and content indexing.
+
+Challenges in Web Crawling:
+a. Scalability – Billions of web pages to crawl.
+b. Freshness – Frequent updates needed for changing content.
+c. Politeness – Avoid overloading web servers.
+
+(2) Basic Web Crawling Process
+- Start with “seed” URLs (known important web pages).
+- Fetch the pages, extract links.
+- Add new links to the crawling queue.
+- Repeat until stopping criteria are met.
+
+Crawling Policies:
+- Selection policy: Which pages to crawl.
+- Revisit policy: How often to re-crawl pages.
+- Politeness policy: Avoids overloading sites (uses robots.txt).
+
+(3) Web Indexing
+- Converts raw crawled pages into searchable structures.
+- Inverted index: Maps words to the documents they appear in.
+
+Indexing Components:
+- Parsing – Extracts text from web pages.
+- Tokenization – Splits text into words.
+- Stemming & Stopword Removal – Reduces index size.
+
+(4) Web Spam & Search Engine Optimization (SEO)
+- Spam: Pages that manipulate rankings unfairly.
+- Types of Web Spam:
+        - Keyword stuffing – Excessive keyword use.
+        - Link farms – Networks of fake pages linking to each other.
+        - Cloaking – Showing different content to crawlers than to users.
+- Spam Detection Methods:
+       - PageRank damping – Reduces the effect of spam links.
+       - TrustRank – Uses a set of known trusted sites to evaluate others.
