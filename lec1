@@ -1,1 +1,30 @@
+IR - Structuring, storing, searching and retrieving info. efficiently
+- deals with massive amounts of data (Amazon, Google, etc.)
+- key challenge: computers deal with raw data, humans require information
+
+Heirarchy of Information Needs:
+1. Wandering: No clear goal (find a research topic)
+2. Exploring: General goal (learn more about ai history)
+3. Seeking: Open-ended information need (find impact of ai on jobs)
+4. Asking specific-fact lookup: when was AI first used in healthcare?
+
+Search Model Workflow:
+[ Task -> Query -> Indexing -> Ranking ]
+A user goes through these steps:
+1. Task -> Info need -> Query (user types a search query)
+2. Search Engine processes it (indexing, matching)
+3. Results ranked based on revelance (bm25, tf-idf, etc.)
+4. Uses Refine query if needed 
+
+Challenges in IR:
+1. Understanding queries efficiently
+2. Rankings results accurately (which document should appear first)
+3. handling large-scale data
+
+Evolution of IR:
+1. 50s-70s : basic sorting, searching, and data structures
+2. 80s-90s : introduction of ranking models, indexing and web search (AltaVista, Excite)
+3. 00s : Rise of Google, Knowledge graphs, Deep Learning in IR
+4. 20S : Conversational IR (ChatGPT, Alexa, AI-Driven search)
+
 
