@@ -1,0 +1,41 @@
+Personalized Search & Recommender Systems
+
+(1) What is Personalized Search?
+- Personalization tailors search results based on:
+          - User behavior (past queries, clicks, dwell time).
+          - Context (location, time, device).
+          - User profiles (long-term interests, demographics).
+- Goal: Improve search relevance by understanding the user.
+Why personalize?
+- A single ranking does not fit everyone.
+- 46%-70% ranking improvements have been observed using personalization
+
+(2) Challenges in Personalized Search
+- Privacy Issues: Users may not want search engines to track behavior.
+- Serendipity & Novelty: Over-personalization can limit diverse search results.
+- Evaluation Problems: Difficult to measure effectiveness (explicit judgments vs. implicit signals).
+Solution:
+- Use short-term session data and long-term user profiles for balance.
+- Personal navigation queries (repeat queries) provide strong signals for personalization.
+
+(3) Recommender Systems – Collaborative Filtering (CF)
+- Goal: Recommend items based on past interactions.
+- Types:
+       - User-based CF: Recommends based on similar users’ preferences.
+       - Item-based CF: Recommends items similar to those a user has liked before.
+       - Hybrid CF: Combines both approaches.
+- Challenges in CF:
+        - Cold Start: Hard to recommend items for new users.
+        - Sparsity: Most users only rate a few items, making recommendations difficult.
+        - Popularity Bias: Tends to recommend popular items over niche ones.      
+
+(4) Content-Based Recommendations
+- Recommends items based on item attributes (e.g., genre, actors, topic).
+- Uses TF-IDF & cosine similarity to find similar items.
+                               
+- Pros & Cons:
+✔️ Works well for new users (no reliance on other users).
+❌ Limited diversity (recommends too similar items).
+
+
+
