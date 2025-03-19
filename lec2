@@ -1,1 +1,86 @@
+                                                         Indexing and Vector Space Retrieval Models
+(1) ....................................................................................................................................................................
+Search Engine Architecture and Indexing
+- IR Philosophy : Do max work at index time (offline) so that query time is fast.
+- Corpus example : Shakespeare's Literature -> Contains lots of unique words, but most appear only once.
+- Challenge : How do we efficiently store and search large collections.
+
+(2) ....................................................................................................................................................................
+Boolean Retrieval Model (Exact Match)
+- uses boolean logic (AND,OR,NOT) to match documents.
+- Brutus AND Caesar BUT NOT Calpurnia returns only Brutus and Caesar.
+- Implementation :
+       - Term-document incidence matrix (1=present, 0=absent)
+       - Bitwise AND operation used for queries
+
+Limitations:
+1. All-Or-Nothing matching (no ranking)
+2. Too broad or too narrow results 
+3. No ranking of relevant documents
+
+(3) ....................................................................................................................................................................
+Inverted Index (Efficient Search Structure)
+- instead of saving a huge matrix, we use an "inverted matrix"
+- for each term, store a list of docIDs that contain it
+- brutus -> [1,4,5] casear -> [41,46]
+Why?
+- much more efficient than a full term-document matrix
+- faster search -> only relevant documents are processed
+
+(4) ....................................................................................................................................................................
+Tokenization and Normalization (Text Preprocessing)
+- Tokenization : convert text into words
+- Normalization : convert words into standardized forms (U.S.A -> USA , anti-discriminatory -> antidiscriminatory)
+- Stemming : reduces words to their root form (eg. running -> run, acquisition -> acquis )
+Challenges:
+- Ambiguity (bank is river bank or financial bank ?)
+- Phrases ( " New York Times " should be indexed as a phrase , not separate word(s))
+
+(5) ....................................................................................................................................................................
+Vector Space Model (VSM) - Ranking Instead of Exact Matching
+- Documents and queries are represented as vectors
+- Cosine similarity determines ranking (higher cosine = more relevant)
+- Formula :
+              cos(O) = (A).(B)
+                      ---------
+                       |A||B|
+              A = query vector, B = document vector
+
+Advantage of VSM:
+- Partial matching -> finds the closest documents, even if not all words match
+- Ranks results -> most relevant documents appear first
+
+(6) ....................................................................................................................................................................
+TF-IDF (Term Frequency - Inverse Document Frequency) - Weighting Scheme
+
+- TF (Term Frequency) : how often a word appears in a document
+- IDF : gives higher weight to rare words (important words)
+- Formula :
+                 TF-IDF = TF x log ( N / DF )
+
+                 N = Total number of documents, DF = Number of docs containing the term
+
+- Common like 'the' or 'is' get low weight
+- Rare terms like "Neural Networks" get higher weight
+
+(7) ....................................................................................................................................................................
+Positional Indexing - Phrase and Proximity Search
+- instead of storing just where words appear, store positions too
+- example query:
+         - "to be or not to be" check whether the words appear in the same order in documents
+
+- used in modern search engines like Google for phrase and proximity search
+
+(8) ....................................................................................................................................................................
+Ranked Retrieval - Fixing Boolean Model Issues
+- Boolean search is too strict ( feast or famine problem )
+- solution : ranked retrieval (bm25, tf-idf, cosine similarity)
+- returns top-K most relevant documents instead of exact matches
+
+
+
+
+
+
+
 
