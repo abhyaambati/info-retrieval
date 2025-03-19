@@ -1,1 +1,56 @@
+BM25 and Language Models
+
+(1) ....................................................................................................................................................................
+BM25 (Okapi BM25) - The Golden Standard for IR Ranking
+- improves TF-IDF by adding document length normalization
+- still used in Lucene, ElasticSearch, OpenSearch as a baseline IR Model
+- handles long documents and term frequency saturation better than raw TF-IDF
+
+Formula: 
+
+(2) ....................................................................................................................................................................
+BM25F ( Extension to Structured Documents )
+- Problem: In structured documents (e.g., Wikipedia pages), some fields (title, body, metadata) are more important
+- Solution : BM25F extends BM25 by weighting different fields differently
+- Example : A query match in the title should be weighted more than in the body
+
+Formula: BM25F = sigma wf BM25f
+wf is the weight for each field
+
+(3) ....................................................................................................................................................................
+Statistical Language Models (LMs) in IR
+- Unlike BM25 (which ranks based on weights), LMs rank by probability
+- Idea: How likely is a query q given in a document d?
+
+- Query Likelihood Model (QLM) Formula: 
+                               P(q|d) = Pi P(ti|d)
+                      - each query term ti is generated independently from the document
+                      - higher P(q|d) -> more relevant the document is
+
+* LMs outperform BM25 in some case (when fine-tuned), but they assume unrealistic independence
+
+(4)....................................................................................................................................................................
+Smoothing in Language Models (Handling Zero Probabilities)
+- Problem : if a query word doesnt appear in a document , P(d|q)=0 (bad for ranking)
+- Solution: use smoothing techniques to assign small probabilities to unseen words
+
+Types of Smoothing
+
+1. Jelinek - Mercer Smoothing : 
+- mixes document probability with a background collection probability
+- formula : lambda used
+lambda controls how much smoothing occurs (higher = more reliance on background model)
+
+2. Dirichlet Smoothing :
+- uses bayesian priors for better tuning
+- mu is parameter controlling smoothing (larger values -> more smoothing)
+
+- Smoothing prevents zero probabilties, making LMs more stable
+- Dirichlet smoothing is often preferred over Jelinek-Mercer for better performance
+
+(5)....................................................................................................................................................................
+BM25 vs Language Models - Which is better ?
+- BM25 is more interpretable and widely used ( good for ranking )
+- LMs are more flexible but need fine-tuning (good for domain-specific search)
+Empirical Results : BM25 often beats LMs on ad-hoc retrieval tasks unless LM parameters are optimized well
 
