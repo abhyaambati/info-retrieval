@@ -1,1 +1,41 @@
+                                                  Language Models and Risk Minimization
+(1)....................................................................................................................................................................
+Query Likelihood Model (QLM) - Basics
+- ranks documents based on the probability that the query was generated from the document's language model
+- rank by probability not term matching like BM25
+- higher P(Q|d) -> more relevant the document
+
+(2)....................................................................................................................................................................
+The Problem: Zero Probabilities
+- zero probabilities are bad for ranking if the term doesnt appear in the document
+- use smoothing techniques to avoid this
+Types of Smoothing:
+a. Jelinek-Mercer (lambda)
+b. Dirichlet (mu)
+
+(3)....................................................................................................................................................................
+Risk Minimization (RM) - A New Ranking Approach
+- Proposed by Lafferty and Zhai (SIGIR 2001)
+- Instead of ranking by probability, it minimizes retrieval risk
+- formula L(pi)
+- RM incorporates feedback to reduce ranking errors
+
+(4)....................................................................................................................................................................
+Relevance Models (RM) - Feedback for better ranking
+- RM1 and RM3 are pseudo-relevance feedback models
+Steps:
+a. Retrieve top-K documents from initial query
+b. Extract important items
+c. Modify the query to improve ranking
+
+- RM models automatically enhance queries using top results
+
+(5)....................................................................................................................................................................
+Query Performance Prediction and Clarity Score
+- Goal: Predict if a query will return good results
+- Clarity Score Formula: 
+                       Clarity = KL ( P(Q) || P(C) )
+High clarity score = better query performance
+-used in query expansion and reformulation
+
 
