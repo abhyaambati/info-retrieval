@@ -1,0 +1,38 @@
+                                             Language Models and Learning to Rank (LTR)
+
+(1)....................................................................................................................................................................
+LMs for IR 
+- treats documents as probability distributions over words
+- ranks documents based on query likelihood -> P(Q|D)
+- uses KL-divergence to measure distance between query and document distributions
+
+Why use LMs?
+- more flexible than BM25, adapts to different queries
+- Can handle smoothing (jelinek-mercer, dirichlet) to avoid zero probabilities
+
+(2)....................................................................................................................................................................
+Relevance Models (RM1 and RM3)
+- RM1: expands query model using top-ranked docs from an initial search
+- RM3: mixes RM1 with the original query for better ranking
+
+Why use RM1/RM3?
+- helps improve query expansion and ranking precision
+
+(3)....................................................................................................................................................................
+Topic Models (Probabilistic LSI - pLSI)
+- Documents are mixtures of topics rather than just term frequencies
+- Aspect Model: improves query understanding by mapping queries to hidden topics
+Why use topic models?
+- helps in query disambiguation and personalization
+
+(4)....................................................................................................................................................................
+Learning-To-Rank (LTR) Basics
+- LTR uses Machine Learning to learn ranking functions from labeled training data
+- instead of handcrafting formulas (bm25, tf-idf), ltr learns from user interactions, document relevance, etc.
+Why LTR?
+- more adaptive and data-driven compared to traditional ranking methods
+- Used in Google Search, Bing Recommendation Systems
+
+
+
+
