@@ -1,0 +1,34 @@
+Efficient Query Processing & Recommender Systems
+
+(1) Distributed Query Processing
+- Why needed? Search & indexing is expensive due to large-scale data.
+- Uses a distributed architecture (e.g., Ask.com’s Neptune system) to speed up query execution.
+
+Key components:
+    - Blender/Aggregator/Fusion: Combines results from multiple sources.
+    - Cache systems: Store frequently used results to reduce processing time.
+
+(2) Query Execution & Optimization
+- Query processing steps:
+        - Parse query
+        - Retrieve relevant documents
+        - Rank results using ranking models
+        - Return final list
+
+- Optimization techniques:
+        - Dynamic pruning: Removes low-scoring documents early.
+        - MaxScore optimization: Skips unnecessary scoring calculations.
+
+(3) Learning to Rank (LTR) & Query Efficiency
+- Challenge: Query-dependent features slow down ranking.
+- Solution:
+       - Cache important ranking features.
+       - Use precomputed document vectors for faster lookup.
+       - Parallelize queries for real-time ranking improvements.
+
+(4) Introduction to Recommender Systems:
+- Purpose: Reduces information overload by predicting what users will like.
+- Two main types:
+           - Collaborative filtering → “What’s popular among my peers?”
+           - Content-based filtering → “Show me more of what I’ve liked.”
+- Hybrid models combine both for better recommendations.
