@@ -1,0 +1,43 @@
+Web Indexing and Distributed Processing
+
+(1) Web Indexing Basics
+- Web indexing converts raw crawled pages into a searchable structure.
+- Uses inverted indexes to map words → document IDs.
+- Challenges in Web Indexing:
+             - Scalability – Huge datasets (Wikipedia = 5GB+ index).
+             - Real-time Updates – Need to refresh the index frequently.
+             - Storage Efficiency – Use compression & optimized data structures.
+
+(2) Inverted Index Construction
+        - Converts raw documents into word-document mappings.
+        - Sort-based vs. MapReduce-based Indexing:
+             - Sort-based Indexing: Processes docs one at a time.
+             - MapReduce Indexing: Distributes workload across many machines for efficiency.
+* Why use MapReduce?
+- Handles large-scale datasets.
+- Efficiently processes billions of web pages.
+
+(3) Distributed Indexing & Parallelization
+- Uses Hadoop & MapReduce for scalable indexing.
+- Google File System (GFS) & HDFS store indexed data across thousands of servers.
+
+* How does MapReduce help indexing?
+- Map Step: Processes documents, extracts words.
+- Shuffle & Sort: Groups words by term.
+- Reduce Step: Merges word-document lists into a final index.
+
+(4) PageRank & Static Ranking
+- PageRank assigns importance scores based on web link structure.
+- Graph-based Indexing: Uses adjacency lists to track web relationships.
+- PageRank Formula:
+ 
+             PR(A)=(1−d)+d∑ ( PR(B) / L(B) )
+
+​              - PR(A) = PageRank of page A.
+              - d = Damping factor (default = 0.85).
+              - L(B) = Number of links from page B.
+
+* Why is PageRank important?
+- Helps determine relevance before applying query-based ranking.
+- Reduces spam & manipulation in search results.
+
