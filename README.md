@@ -114,7 +114,10 @@ sim(A, B) = (∑ w_A w_B) / (||A|| ||B||)
 
 ## **Final Notes:**
 ✔ BM25, TF-IDF, and Cosine Similarity are key ranking functions.
+
 ✔ LTR improves ranking using machine learning.
+
 ✔ PageRank determines static importance of web pages.
+
 ✔ Recommender systems use collaborative & content-based filtering.
 
