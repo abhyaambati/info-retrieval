@@ -1,1 +1,45 @@
+                                                          Vector Space Retrieval and Evaluation
 
+Recap:
+TF-IDF = TF X Log ( N / DF ) , cos(O) = (A).(B) / |A||B|
+
+(1) ....................................................................................................................................................................
+Document Length Normalization
+- short docs get higher term frequency , so they seem more relevant
+- solution : normalize TF-IDF scores using L2 norm (vector length)
+- effect : long and short docs have comparable ranks.
+
+(2) ....................................................................................................................................................................
+DAAT (Document-At-A-Time) vs TAAT (Term-at-a-Time) Processing
+- DAAT : computes scores one document at a time before moving to next
+- TAAT : computes scores one term at a time, storing immeditate results
+* DAAT is better for large scale search engines
+
+(3) ....................................................................................................................................................................
+Query Processing Optimization
+- Brutus AND Caesar AND Calpurnia : which order ?
+- best approach: start with the rarest term, AND with others
+- faster processing
+
+(4)  ....................................................................................................................................................................
+WAND Algorithms (Efficient Search Ranking)
+- Speeds up DAAT processing by skipping unnecessary document evaluations
+- Two steps:
+      1. Approximate Scoring: quick pass to find potential relevant docs
+      2. Full Evaluation: only for promising docs (reduces computation by 90%)
+- Key Formula:
+                     U B (d,q) >= theta
+
+           if true: fully evaluate the document
+           if false: skip the document
+
+- WAND is better than DAAT
+
+(5) ....................................................................................................................................................................
+Evaluation Metrics
+- Precision @ K -> Percentage of relevant documents in top K results
+- Mean Average Precision -> Precision averaged over multiple queries
+- Discounted Cumulative Gain (DCG) -> Rewards ranking relevant documents higher
+- Normalized DCG (nDCG) -> Adjusts DCG for different query difficulties
+
+* Accuracy is not the best metric for IR
